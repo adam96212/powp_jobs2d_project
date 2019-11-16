@@ -8,8 +8,12 @@ import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.legacy.drawer.shape.ILine;
+import edu.kis.legacy.drawer.shape.LineFactory;
+import edu.kis.legacy.drawer.shape.line.SpecialLine;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawPanelControllerAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener2;
@@ -19,8 +23,8 @@ import edu.kis.powp.jobs2d.features.DriverFeature;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
-	/**
+	
+	/** 
 	 * Setup test concerning preset figures in context.
 	 * 
 	 * @param application Application context.
@@ -51,6 +55,10 @@ public class TestJobs2dPatterns {
 		Job2dDriver testDriver = new DrawPanelControllerAdapter(application.getFreePanel());
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 		DriverFeature.updateDriverInfo();
+		
+		ILine lineType = new SpecialLine();
+		Job2dDriver lineDriver = new LineDrawerAdapter(application.getFreePanel(), lineType);
+		DriverFeature.addDriver("Line driver", lineDriver);
 	}
 
 	/**

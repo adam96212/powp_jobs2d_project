@@ -1,5 +1,6 @@
 package edu.kis.powp.jobs2d;
 
+import java.awt.List;
 import java.util.ArrayList;
 
 import edu.kis.powp.jobs2d.command.DriverCommand;
@@ -16,7 +17,7 @@ public class DriverCommandTest {
 		OperateToCommand o = new OperateToCommand(new MyAdapter());
 		SetPositionCommand s = new SetPositionCommand(new MyAdapter());
 		
-		ArrayList<DriverCommand> list = new ArrayList<>();
+		List<DriverCommand> list = new List<>();
 		list.add(o);
 		list.add(s);
 		
