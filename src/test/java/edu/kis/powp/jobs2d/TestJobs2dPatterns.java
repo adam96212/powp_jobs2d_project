@@ -12,6 +12,8 @@ import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.legacy.drawer.shape.line.SpecialLine;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.jobs2d.drivers.SelectTestCommandCircleOptionListener;
+import edu.kis.powp.jobs2d.drivers.SelectTestCommandRectangleOptionListener;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawPanelControllerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
@@ -34,12 +36,18 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager());
 		SelectTestFigureOptionListener2 selectTestFigureOptionListener2 = new SelectTestFigureOptionListener2(
 				DriverFeature.getDriverManager());
+		SelectTestCommandRectangleOptionListener selectTestCommandRectOptionListener = new SelectTestCommandRectangleOptionListener(
+				DriverFeature.getDriverManager());
+		SelectTestCommandCircleOptionListener selectTestCommandCircleOptionListener = new SelectTestCommandCircleOptionListener(
+				DriverFeature.getDriverManager());
 		
 	//	ActionListener selectTestFigureOptionListener2 = (e)-> FiguresJoe.figureScript2(DriverFeature.getDriverManager().getCurrentDriver());
 
 		
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", selectTestFigureOptionListener2);
+		application.addTest("Rectangle", selectTestCommandRectOptionListener);
+		application.addTest("Circle", selectTestCommandCircleOptionListener);
 	}
 
 	/**
